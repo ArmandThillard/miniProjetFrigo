@@ -13,8 +13,6 @@ const idFrigo = 9;
 function getProduits(idFrigo, cherche) {
   console.log("Recherche : " + cherche);
 
-  //Initialisation du tableau
-
   let url =
     "http://webmmi.iut-tlse3.fr/~jean-marie.pecatte/frigos/" +
     idFrigo +
@@ -23,8 +21,6 @@ function getProduits(idFrigo, cherche) {
   if (cherche !== undefined) {
     url += "?search=" + cherche;
   }
-
-  console.log(url);
 
   let fetchOptions = {
     method: "GET"
@@ -36,7 +32,6 @@ function getProduits(idFrigo, cherche) {
       return response.json();
     })
     .then(dataJSON => {
-      console.log(dataJSON);
       let char =
         "<tr>" +
         "<th> Produit </th>" +
@@ -95,9 +90,10 @@ function addProduct(idFrigo, product) {
     "http://webmmi.iut-tlse3.fr/~jean-marie.pecatte/frigos/" +
     idFrigo +
     "/produits";
+
   let myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
-  console.log(myHeaders);
+  
   const fetchOptions = {
     method: "POST",
     headers: myHeaders,
@@ -105,11 +101,9 @@ function addProduct(idFrigo, product) {
   };
   fetch(url, fetchOptions)
     .then(response => {
-      console.log(response);
       return response.json();
     })
     .then(dataJSON => {
-      console.log(dataJSON);
       getProduits(idFrigo);
     })
     .catch(error => console.log(error.message));
@@ -154,6 +148,7 @@ function deleteProduct(idFrigo, idProduct) {
  */
 function setProduct(idFrigo, product) {
   console.log("setProduct :")
+
   const url =
     "http://webmmi.iut-tlse3.fr/~jean-marie.pecatte/frigos/" +
     idFrigo +
@@ -161,7 +156,7 @@ function setProduct(idFrigo, product) {
 
   let myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
-  console.log(myHeaders);
+  
   const fetchOptions = {
     method: "PUT",
     headers: myHeaders,
@@ -172,7 +167,6 @@ function setProduct(idFrigo, product) {
     return response.json();
   }).then(dataJSON => {
     getProduits(idFrigo);
-    console.log(dataJSON);
   }).catch(
     error => console.log(error.message)
   )
@@ -220,7 +214,6 @@ cherche.addEventListener("click", event => {
 let rechercher = document.getElementById("recherche");
 rechercher.addEventListener("keyup", event => {
   if (event.keyCode === 13) {
-    console.log("Rechercher enter tapped");
     searchProduct();
   }
   event.stopPropagation();
@@ -240,8 +233,6 @@ allProducts.addEventListener("click", event => {
 // Utilisé pour gérer les clicks d'ajout et d'enlèvement de quantité et pour la suppression de produit
 document.addEventListener("click", event => {
   let target = event.target;
-  // console.log("Cible : ", target.attributes);
-  // console.log("Parent node ", target.parentNode.children)
   
   let product = {id: 0, nom: "", qte: 0};
 
@@ -252,11 +243,9 @@ document.addEventListener("click", event => {
       product.id = target.id;
       product.nom = target.getAttribute("nom");
       product.qte = parseInt(target.getAttribute("qte")) + 1;
-      // console.log("Produit : ", product);
 
       // Ajouter un à la quantité du produit
       setProduct(idFrigo, product);
-      // getProduits(idFrigo);
       break;
     case "enlever1":
       console.log("Enlever 1 clicked");
@@ -264,15 +253,12 @@ document.addEventListener("click", event => {
       product.id = target.id;
       product.nom = target.getAttribute("nom");
       product.qte = parseInt(target.getAttribute("qte")) - 1;
-      // console.log("Produit : ", product);
-
-      console.log(typeof product.qte);
 
       if(product.qte === 0) {
         // Supprimer le produit
         deleteProduct(idFrigo, product.id);
       } else {
-        // Enelver un à la quantité du produit
+        // Enlever un à la quantité du produit
         setProduct(idFrigo, product);
       }
       break;
