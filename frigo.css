@@ -1,0 +1,209 @@
+body {
+  background-image: url("images/background.jpg");
+  background-size: cover;
+  font-family: "Arial";
+}
+#allProducts {
+  margin-top: 15px;
+  margin-left: 750px;
+  color: #9f9894;
+  font-family: "Lobster Two";
+  font-size: 35px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+#allProducts:hover {
+  color: #655a53;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #bd3c37;
+  height: 50px;
+  margin-top: 0px;
+}
+
+.recherche {
+  text-align: center;
+  float: left;
+  width: 49%;
+  border-right: 2px solid #ebeff1;
+  height: 100%;
+  padding-top: 14px;
+}
+
+#cherche {
+  background-image: url("images/loupe_grand.png");
+  background-size: cover;
+  background-color: #bd3c37;
+  border: none;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+#cherche:hover {
+  background-image: url("images/loupe_rouge.png");
+}
+
+#addProduct {
+  background-image: url("images/add-to-cart.png");
+  background-size: cover;
+  background-color: #bd3c37;
+  border: none;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+#addProduct:hover {
+  background-image: url("images/add-to-cart_clair.png");
+}
+
+.ajoutProd {
+  text-align: center;
+  float: right;
+  width: 50.8%;
+  height: 100%;
+  padding-top: 14px;
+}
+
+
+form {
+  float: right;
+  margin-right: 100px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+  background-color: #655a53;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #3f3129;
+  width: 60%;
+  text-align: center;
+}
+#ajouter {
+  background-image: url("images/add-to-cart.png");
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #655a53;
+  margin-left: 30px;
+}
+#ajouter:hover {
+  background-image: url("images/add-to-cart_clair.png");
+}
+#ajout {
+  border: 1.5px solid #dc8e54;
+  border-radius: 4px;
+  margin-right: 20px;
+}
+#qte {
+  border: 1.5px solid #dc8e54;
+  border-radius: 4px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.table-container {
+  margin-top: 20px;
+  overflow-y: auto;
+
+  width: 500px;
+  height: 75vh;
+}
+table {
+  width: 100%;
+}
+th {
+  background-color: #dc8e54;
+  color: #ebeff1;
+}
+th,
+td {
+  border-bottom: 1px solid #e7c39b;
+  text-align: center;
+}
+tr {
+  height: 50px;
+}
+tr:hover {
+  background-color: #ebeff1;
+}
+td {
+  color: #655a53;
+}
+
+.supbutton {
+  background-image: url("images/bin.png");
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #ebeff1;
+}
+.supbutton:hover {
+  background-image: url("images/bin_rouge.png");
+}
+
+.ajoutbutton {
+  background-image: url("images/more.png");
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #ebeff1;
+  margin-right: 8px;
+}
+.ajoutbutton:hover {
+  background-image: url("images/more_rouge.png");
+}
+.enleverbutton {
+  background-image: url("images/minus.png");
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #ebeff1;
+  margin-right: 8px;
+}
+.enleverbutton:hover {
+  background-image: url("images/minus_rouge.png");
+}

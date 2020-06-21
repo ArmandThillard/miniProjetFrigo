@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+  la requete AJAX ayant lieu sur un URL non sécurisée http
+  le navigateur risque de bloquer la req AJAX
+  il faut modifier le param "contenu non securisé"
+  dans les params du site pour l'autoriser
+  dans chrome et firefox cliquer sur le cadenas
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Mon Frigo</title>
+    <link rel="stylesheet" type="text/css" href="frigo.css" media="all" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lobster+Two"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="images/diet.png" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul id="menutop">
+          <li class="recherche">
+            <input type="text" id="recherche" placeholder="rechercher" />
+            <input type="button" id="cherche" />
+          </li>
+          <li class="ajoutProd">
+            <input type="text" id="newProduct" placeholder="ajouter produit" />
+            <input type="text" id="qteNewProduct" placeholder="quantité" />
+            <input id="addProduct" />
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <button id="allProducts">
+      Tout mes produits
+    </button>
+    <form>
+      <div class="table-container">
+        <table id="listeProduits"></table>
+      </div>
+    </form>
+    <script src="frigo.js"></script>
+  </body>
+</html>
